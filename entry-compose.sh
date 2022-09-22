@@ -1,10 +1,5 @@
 #!/bin/bash
 
-cd ../feddit-backend
-docker build . -t feddit-backend
+set -e -u -o pipefail
 
-cd ../feddit-frontend
-docker build . -t feddit-nginx
-
-cd ../feddit-compose
-docker-compose up
+docker-compose up --build

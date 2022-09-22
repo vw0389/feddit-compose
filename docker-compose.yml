@@ -19,13 +19,13 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
             - POSTGRES_USER=${POSTGRES_USER}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            
-        image: feddit-backend
+        build:
+            context: ../feddit-backend
 
-    feddit-nginx:
+    feddit-frontend:
         depends_on:
             - feddit-backend
         ports:
             - ${NGINX_PORT}:${NGINX_PORT}
-
-        image: feddit-nginx
+        build:
+            context: ../feddit-frontend
