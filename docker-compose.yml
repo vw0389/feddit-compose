@@ -8,26 +8,28 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
 
         image: postgis/postgis:14-3.2-alpine
-    feddit-backend:
-        depends_on:
-            - feddit-db
-        ports:
-            - 8080:8080
-        environment:
-            - POSTGRES_HOST=${POSTGRES_HOST}
-            - POSTGRES_PORT=${POSTGRES_PORT}
-            - POSTGRES_DB=${POSTGRES_DB}
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            - FEDDIT_JWT_SECRET=${FEDDIT_JWT_SECRET}
-            - SPRING_SECURITY_USER_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}
-        build:
-            context: ../feddit-backend
-
-    feddit-frontend:
-        depends_on:
-            - feddit-backend
-        ports:
-            - ${NGINX_PORT}:${NGINX_PORT}
-        build:
-            context: ../feddit-frontend
+#    feddit-backend:
+#        depends_on:
+#            - feddit-db
+#        ports:
+#            - 8080:8080
+#        environment:
+#            - POSTGRES_HOST=${POSTGRES_HOST}
+#            - POSTGRES_PORT=${POSTGRES_PORT}
+#            - POSTGRES_DB=${POSTGRES_DB}
+#            - POSTGRES_USER=${POSTGRES_USER}
+#            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+#            - FEDDIT_JWT_SECRET=${FEDDIT_JWT_SECRET}
+#            - SPRING_SECURITY_USER_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}
+#        build:
+#            context: ../feddit-backend
+#
+#    feddit-frontend:
+#        depends_on:
+#            - feddit-backend
+#        ports:
+#            - ${NGINX_PORT}:${NGINX_PORT}
+#        environment:
+#            - NODE_ENV=compose
+#        build:
+#            context: ../feddit-frontend
