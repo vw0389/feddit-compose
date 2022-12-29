@@ -24,3 +24,4 @@ Comment out everything in the docker-compose.yml except `feddit-db` then run `en
 You would then have to run the backend and frontend manually via `./mvnw spring-boot:run` and `npm run start` respectively
 
 ### Importing the Postman Collection
+The postman collection is `Feddit.postman_collection.json`, import it into postman
